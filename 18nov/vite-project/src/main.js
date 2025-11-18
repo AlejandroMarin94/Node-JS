@@ -26,7 +26,7 @@ async function llamada() {
   try {
     const res = await fetch("http://localhost:3000/info");
     if (!res.ok) {
-      throw new error("No se han encontrado los datos");
+      throw new Error("No se han encontrado los datos");
     }
     const response = await res.json();
     console.log(response.data);
@@ -37,3 +37,7 @@ async function llamada() {
 }
 
 button.addEventListener("click", () => llamada());
+
+
+
+
