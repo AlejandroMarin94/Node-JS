@@ -16,13 +16,16 @@ const server = http.createServer((req, res) => {
   if (req.method === "GET" && req.url === "/") {
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("Bienvenido a mi primer servidor");
+
   } else if (req.method === "GET" && req.url === "/about") {
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("Acerca de mí: Nombre del alumno");
+
   } else if (req.method === "GET" && req.url === "/contact") {
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("Puedes contactar en: alumno@example.com");
     // Ruta para testear Ejercicio 2 y 4
+
   } else if (req.method === "GET" && req.url === "/info") {
     res.writeHead(200, { "Content-Type": "application/json" });
     const data = {
@@ -36,6 +39,7 @@ const server = http.createServer((req, res) => {
         data,
       })
     );
+    
     // Ruta para testear Ejercicio 3
   } else if (req.method === "GET" && req.url === "/hora") {
     res.writeHead(200, { "Content-Type": "text/plain" });

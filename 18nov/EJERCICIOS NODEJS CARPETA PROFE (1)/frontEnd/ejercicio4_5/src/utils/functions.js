@@ -1,5 +1,4 @@
 export function showData(data) {
-  console.log(data);
   const resElement = document.querySelector("#response")
   resElement.textContent = ""
   const responseContainer = document.createElement("div")
