@@ -1,14 +1,15 @@
 {
-  "name": "18nov",
+  "name": "21-noviembre",
   "version": "1.0.0",
-  "description": "Primer proyecto nodeJS",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "Alejandro Marin",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
