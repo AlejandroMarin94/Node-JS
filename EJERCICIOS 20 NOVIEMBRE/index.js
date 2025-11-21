@@ -43,6 +43,17 @@ app.get("/productos", (req, res)=>{
 
 
 
+app.get("/products",(req, res)=>{
+  const {categoria, precio_max} =req.query;
+
+  console.log(`El articulo corresponde a la categoria ${categoria}, y tiene un precio de ${precio_max} €`);
+
+  res.send("Validando")
+  
+
+
+})
+
 // EJERCICIO 10:
 //   Crear un array en memoria de películas y exponer:
 //
@@ -51,6 +62,11 @@ app.get("/productos", (req, res)=>{
 //
 //   - GET /movies/:id
 //     Devuelve una película por id (id puede ser un número).
+
+
+
+
+
 
 
 
@@ -67,6 +83,29 @@ const peliculas = [
   { id: 10, titulo: "La La Land", categoria: "Musical" }
 ];
 
+app.get("/peliculas",(req,res)=>{
+
+  res.send(peliculas)
+})
+
+app.get("/peliculas/:id", (req,res)=>{
+  const {id} = req.params;
+  console.log(id);
+
+  const pelicula = peliculas.find((p)=>
+
+    p.id=== Number(id)
+    
+  )
+  
+  if(!pelicula) return res.send("Sigue probando suerte");
+  res.send(JSON.stringify(pelicula))
+})
+
+
+
+
+
 app.get("/movies/:id", (req, res)=>{
 
     const {id } = req.params;
@@ -75,7 +114,7 @@ app.get("/movies/:id", (req, res)=>{
   const pelicula = peliculas.find((p)=>
     p.id===Number(id)
   )
-  if(!pelicula) return res.send("no se ha encontrado l apleicula");
+  if(!pelicula) return res.send("no se ha encontrado la pelicula");
 
   res.send(JSON.stringify(pelicula))
     

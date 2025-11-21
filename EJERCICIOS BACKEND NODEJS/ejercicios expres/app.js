@@ -52,6 +52,24 @@ app.get("/contact", (req, res) => {
   res.send("Puedes contactar en: alumno@example.com");
 });
 
+
+
+
+
+app.get("/hola", (req, res)=>{
+  console.log("Hola mundo");
+  
+  res.send("Hola mundo")
+})
+
+app.get("/adios", (req,res)=>{
+  console.log("adios");
+  res.send("Adios")
+  
+})
+
+
+
 const PORT = 3000;
 
 app.listen(PORT, () => {

@@ -5,17 +5,20 @@ const form = document.querySelector("#loguearUser");
 
 async function getData(email, pass) {
   try {
+    const urlQuery = `http://localhost:3000/query?idUser=${email}&dataSend=${pass}`
     const url = "http://localhost:3000/login";
-    const res = await fetch(url, {
+    const options = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "token": "e9swr87swe0ewfewrfewfewfwe"
       },
       body: JSON.stringify({
         email,
         pass
       }),
-    });
+    }
+    const res = await fetch(url, options);
     if (!res.ok) throw new Error("Fallo al realizar la peticion");
     const response = await res.json();
     showData(response) 
