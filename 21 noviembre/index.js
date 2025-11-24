@@ -187,35 +187,10 @@ const movies = [
 ];
 
 module.exports = movies;
-/*
-## Ejercicio 1 – GET /movies
- 
-Crea un endpoint que devuelva todas las películas del array bbddMocked.
- 
-Si existe -> Respuesta: listado completo en JSON.
-Si no existe -> Respuesta: Mensaje comunicancdo que no hay peliculas para listar
- 
- */
 
-/*## Ejercicio 2 – GET /movies/:id
- 
-Crea un endpoint que devuelva una película concreta por id.
- 
-Si existe → devolver la película.
-Si no existe → status 404 y mensaje "Película no encontrada".
- */
 
-/*## Ejercicio 3 – POST /movies
- 
-Crea un endpoint para añadir una película nueva al array.
- 
-Body (JSON): titulo, descripcion, anio, valoracion, poster_img.
-Se debe verificar en el backEnd que todos los campos llegan.
- 
-El servidor generará un id nuevo (incremental).
- 
-Si ok -> Respuesta: la película creada con su id.
-*/
+
+
 
 const express = require("express");
 
@@ -233,6 +208,15 @@ app.use(
 );
 
 //////////1
+/*
+## Ejercicio 1 – GET /movies
+ 
+Crea un endpoint que devuelva todas las películas del array bbddMocked.
+ 
+Si existe -> Respuesta: listado completo en JSON.
+Si no existe -> Respuesta: Mensaje comunicancdo que no hay peliculas para listar
+ 
+ */
 app.get("/movies", (req, res) => {
   if (movies.length === 0) {
     return res.send("No se han encontrado peliculas");
@@ -243,6 +227,15 @@ app.get("/movies", (req, res) => {
 
 ///////////////2
 
+/*## Ejercicio 2 – GET /movies/:id
+ 
+Crea un endpoint que devuelva una película concreta por id.
+ 
+Si existe → devolver la película.
+Si no existe → status 404 y mensaje "Película no encontrada".
+ */
+
+
 app.get("/movies/:id", (req, res) => {
   const { id } = req.params;
 
@@ -251,6 +244,18 @@ app.get("/movies/:id", (req, res) => {
   res.send(pelicula);
 });
 //////////////3
+
+/*## Ejercicio 3 – POST /movies
+ 
+Crea un endpoint para añadir una película nueva al array.
+ 
+Body (JSON): titulo, descripcion, anio, valoracion, poster_img.
+Se debe verificar en el backEnd que todos los campos llegan.
+ 
+El servidor generará un id nuevo (incremental).
+ 
+Si ok -> Respuesta: la película creada con su id.
+*/
 
 app.post("/movies", (req, res) => {
   const { titulo, descripcion, anio, valoracion, poster_img } = req.body;
