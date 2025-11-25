@@ -1,0 +1,17 @@
+const mongoose = require("mongoose");
+
+const connectToDataBase = async ()=>{
+    try { 
+        const URL_MONGO = process.env.URL_MONGO;
+        await mongoose.connect(URL_MONGO);
+        console.log("Conexion a la BBDD realizada con exito");
+        
+        
+    } catch (error) {
+        console.log("Error al conectar a la bbdd de MongoDB", error);
+        
+        
+    }
+};
+
+module.exports = connectToDataBase;
