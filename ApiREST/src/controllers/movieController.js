@@ -28,4 +28,19 @@ const getMovieById = async (req, res) => {
 };
 
 
-module.exports = { getAllMovies, getMovieById };
+const getMovieByName = async (req,res)=>{
+    try{
+    const {movieTitle} = req.params;
+    const movies = await movieModel.find({
+        title: {$regex: movieTitle, options: "i"},
+    });
+
+
+    if(movies.length ===0) return res.status(200).send("No se han encontrado peliculas")}
+        catch(error){
+            res.status(500).send({status: "Failed", error: error.message})
+    }
+}
+    
+
+module.exports = { getAllMovies, getMovieById, getMovieByName};

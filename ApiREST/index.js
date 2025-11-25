@@ -3,7 +3,8 @@ const express = require("express");
 const cors = require("cors");
 const connectToDatabase = require("./src/db/connectDb");
 const userRouter = require("./src/routers/userRouter");
-const movieRouter = require("./src/routers/movieRouter")
+const movieRouter = require("./src/routers/movieRouter");
+const authRouter = require("./src/routers/authRouters");
 
 const PORT = Number(process.env.PORT || 3000);
 
@@ -24,6 +25,10 @@ server.use(
 server.use("/api/users", userRouter);
 // Router for movies
 server.use("/api/movies", movieRouter)
+
+// Router for auth petitions 
+
+server.use("/api/autch", authRouter)
 
 server.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
