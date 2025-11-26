@@ -3,6 +3,24 @@ const mongoose = require("mongoose");
 // Instanciamos la calse Schema de mongoose
 const Schema = mongoose.Schema;
 
+const commentSchema = new Schema({
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+
+  comment: {
+    type: String,
+    required: true,
+  },
+
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
 const movieSchema = new Schema({
   title: {
     type: String,
@@ -13,7 +31,7 @@ const movieSchema = new Schema({
     required: [true, "La descripcion es obligatorio"],
   },
   category: {
-    type: String,
+    type: [String],
     required: [true, "La categoria es obligatoria"],
   },
   director: {
@@ -38,6 +56,8 @@ const movieSchema = new Schema({
     type: String,
     required: [true, "El año es obligatorio"],
   },
+
+  comments: [ commentSchema],
 
   createdAt: {
     type: Date,

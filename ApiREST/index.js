@@ -28,7 +28,7 @@ server.use("/api/movies", movieRouter)
 
 // Router for auth petitions 
 
-server.use("/api/autch", authRouter)
+server.use("/api/auth", authRouter)
 
 server.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
