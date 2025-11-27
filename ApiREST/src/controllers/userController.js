@@ -1,6 +1,13 @@
 const userModel = require("../models/userModel");
 const movieModel = require("../models/movieModels");
 
+/**
+ * 
+ * @param {Request} req 
+ * @param {*Response} res 
+ * @returns Array with users
+ */
+
 const getAllUsers = async (req, res) => {
   try {
     const users = await userModel.find();

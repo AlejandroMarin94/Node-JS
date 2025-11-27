@@ -12,16 +12,16 @@ const {
   addFavoriteMovie,
   removeFavoriteMovie
 } = require("../controllers/userController");
-const {verifyToken, verifyAdmin } = require("../middlewares/auth");
+const {verifyToken, verifyAdmin, verifyUserPermision } = require("../middlewares/auth");
 
 // Ruta para obtener todos los usuarios
 router.get("/", verifyToken, verifyAdmin, getAllUsers);
 // Ruta para obtener usuario por id
-router.get("/:idUser", getUserById);
+router.get("/:idUser",verifyToken, getUserById);
 // Ruta para crear usuario
 router.post("/", insertNewUser);
 // Ruta para editar un usuario
-router.patch("/edit/:idUser", editUserById)
+router.patch("/edit/:idUser",verifyToken,verifyUserPermision, editUserById)
 // Ruta para eliminar un usuario
 router.delete("/delete/:idUser", deleteUserById);
 
