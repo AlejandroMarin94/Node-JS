@@ -1,6 +1,8 @@
 const bcrypt = require("bcrypt");
 const userModel = require("../models/userModel");
 const generateToken = require("../utils/authToken");
+const { sendEmail } = require("../services/emailServices");
+
 
 const BCRYPT_ROUNDS = Number(process.env.BCRYPT_ROUNDS || 10);
 
@@ -19,6 +21,14 @@ const signup = async (req, res) => {
         .status(400)
         .send({ status: "Failed", message: "No se ha creado el usuario" });
     }
+
+    //Realizo el envio del email
+
+    const to = email;
+    const subject = "Bienvenido a nuestra app";
+    const html = "Bienvenido"
+    await sendEmail(to, subject, html);
+
     res.status(200).send({
       status: "Success",
       message: "El usuario se ha creado correctamente",
@@ -50,7 +60,9 @@ const signupMultiple = async (req, res) => {
           .send({ status: "Failed", message: "No se ha creado el usuario" });
       }
     });
-    res.status(200).send(`Se han introducido correctamente ${cantidadUsers} usuarios`)
+    res
+      .status(200)
+      .send(`Se han introducido correctamente ${cantidadUsers} usuarios`);
   } catch (error) {
     res.status(500).send({ status: "Failed", error: error.message });
   }
@@ -139,10 +151,36 @@ const loginWithToken = async (req, res) => {
   }
 };
 
+//COMPROBAR SI FUNCIONA//
+const makeAdmin = async (req, res) => {
+  try {
+    const { idUser } = req.body;
+    const user = await userModel.findById(idUser);
 
-const makeAdmin = async(req,res)=>{
-  
-}
+    if (!user)
+      return res
+        .status(401)
+        .send({ status: "Failed", message: "No se ha encontrado ese usuario" });
+
+    if (user.role !== "admin") {
+      user.role = "admin";
+      user.save();
+
+      return res
+        .status(200)
+        .send({
+          status: "Succes",
+          message: "El usuario ahora es administrador",
+        });
+    }
+
+    res
+      .status(200)
+      .send({ status: "Succes", message: "Este usuario ya es administrador" });
+  } catch (error) {
+    res.status(500).send({ status: "Failed", error: error.message });
+  }
+};
 
 module.exports = {
   signup,
@@ -150,5 +188,5 @@ module.exports = {
   updatePrincipalToken,
   loginWithToken,
   signupMultiple,
-  makeAdmin
+  makeAdmin,
 };

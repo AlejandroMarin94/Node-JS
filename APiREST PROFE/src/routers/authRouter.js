@@ -1,6 +1,6 @@
 // Estas dos lineas siempre
 const express = require("express");
-const { signup, login, loginWithToken, updatePrincipalToken, signupMultiple } = require("../controllers/authController");
+const { signup, login, loginWithToken, updatePrincipalToken, signupMultiple, makeAdmin } = require("../controllers/authController");
 const { verifyToken } = require("../middlewares/auth");
 const router = express.Router();
 
