@@ -1,62 +1,6 @@
-/*Configura CORS para permitir peticiones desde tu frontend en http://localhost:5173.
- 
-Asegúrate de tener express.json() para leer el body en JSON.
- 
-## Ejercicio 1 – GET /movies
- 
-Crea un endpoint que devuelva todas las películas del array bbddMocked.
- 
-Si existe -> Respuesta: listado completo en JSON.
-Si no existe -> Respuesta: Mensaje comunicancdo que no hay peliculas para listar
- 
-## Ejercicio 2 – GET /movies/:id
- 
-Crea un endpoint que devuelva una película concreta por id.
- 
-Si existe → devolver la película.
-Si no existe → status 404 y mensaje "Película no encontrada".
- 
-## Ejercicio 3 – POST /movies
- 
-Crea un endpoint para añadir una película nueva al array.
- 
-Body (JSON): titulo, descripcion, anio, valoracion, poster_img.
-Se debe verificar en el backEnd que todos los campos llegan.
- 
-El servidor generará un id nuevo (incremental).
- 
-Si ok -> Respuesta: la película creada con su id.
- 
-## Ejercicio 4 – PUT /movies/:id
- 
-Crea un endpoint para reemplazar completamente una película.
- 
-Comprobacion en el backend -> Body debe contener todos los campos (titulo, descripcion, anio, valoracion, poster_img).
- 
-Si la película no existe → Status 404 y mensaje de error.
-Si se reemplaza ok -> Respuesta: película actualizada.
- 
-## Ejercicio 5 – PATCH /movies/:id/rating
- 
-Crea un endpoint para actualizar solo la valoración (valoracion) de una película.
- 
-Body (JSON): { "valoracion": 9.5 }
- 
-Si la película no existe → Status 404 y mensaje de error.
-Si ok -> Respuesta: película con la nueva valoración.
- 
-## Ejercicio 6 – DELETE /movies/:id
- 
-Crea un endpoint para borrar una película.
- 
-Si existe → borrarla y devolver mensaje de éxito.
-Si no existe → Status 404 y mensaje de error.
-
-*/
-
 // Array de películas mockeadas para usar en el servidor
 
-const movies = [
+let movies = [
   {
     id: 1,
     titulo: "El Club de la Lucha",
@@ -188,10 +132,6 @@ const movies = [
 
 module.exports = movies;
 
-
-
-
-
 const express = require("express");
 
 const cors = require("cors");
@@ -235,7 +175,6 @@ Si existe → devolver la película.
 Si no existe → status 404 y mensaje "Película no encontrada".
  */
 
-
 app.get("/movies/:id", (req, res) => {
   const { id } = req.params;
 
@@ -261,11 +200,14 @@ app.post("/movies", (req, res) => {
   const { titulo, descripcion, anio, valoracion, poster_img } = req.body;
 
   if (!titulo || !descripcion || !anio || !valoracion || !poster_img) {
-    res.status(404).send("Faltan datos para poder mostrar peliculas");
+    return res.status(400).send("Faltan datos para poder mostrar peliculas");
   }
 
+  const newID = Math.max(...movies.map((m) => m.id)) + 1;
+  console.log(newID);
+
   const newMovie = {
-    id: movies.length + 1,
+    id: newID,
     titulo,
     descripcion,
     anio,
@@ -296,17 +238,9 @@ app.put("/movies/:id", (req, res) => {
     res.status(404).send("Faltan datos para poder mostrar peliculas");
   }
 
-  let index = -1;
-  for (let i = 0; i < movies.length; i++) {
-    if (movies[i].id === id) {
-      index = i;
-      break;
-    }
-  }
-
-  const movieIndex = movies.findIndex((m)=> m.id ===id);
-  if(movieIndex ===-1){
-    return res.status(404).send("No se ha encontrado la pelicula")
+  const movieIndex = movies.findIndex((m) => m.id === id);
+  if (movieIndex === -1) {
+    return res.status(404).send("No se ha encontrado la pelicula");
   }
 
   const newMovie = {
@@ -336,18 +270,51 @@ Si la película no existe → Status 404 y mensaje de error.
 Si ok -> Respuesta: película con la nueva valoración.
 */
 app.patch("/movies/:id/rating", (req, res) => {
-
-    const {valoracion} = req.body;
+  const { valoracion } = req.body;
   const id = Number(req.params.id);
 
-  const movieToChange = movies.find((m) => m.id === id);
+  if (valoracion === undefined) {
+    res.status(400).send("Falta el campo valoracion");
+  }
+
+  const movieToChange = movies.find((p) => p.id === id);
+
+  if (!movieToChange) {
+    return res.status(404).send("No se ha encontrado la pelicula");
+  }
+
   movieToChange.valoracion = valoracion;
+  console.log(movies);
 
+  return res.send(JSON.stringify(movieToChange));
+});
+
+/*
+## Ejercicio 6 – DELETE /movies/:id
+ 
+Crea un endpoint para borrar una película.
+ 
+Si existe → borrarla y devolver mensaje de éxito.
+Si no existe → Status 404 y mensaje de error.
+
+*/
+
+app.delete("/movies/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const index = movies.findIndex((p) => p.id === id);
+
+  if (index === -1) {
+    return res.status(404).send("No se ha encontrado esa pelicula");
+  }
+
+  const deleteMovie = movies.splice(index,1)
+
+  console.log(deleteMovie);
+  
+  
   
 
-
-  
-  
+  return res.send(JSON.stringify({message: "Pelicula eliminada", deleted: deleteMovie[0]}))
 });
 
 const PORT = 3000;
