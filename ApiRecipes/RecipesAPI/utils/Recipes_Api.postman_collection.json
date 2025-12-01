@@ -1,0 +1,730 @@
+{
+	"info": {
+		"_postman_id": "fc3f5970-e063-40b0-a567-7c59d6dfc11f",
+		"name": "Recipes_Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9256946"
+	},
+	"item": [
+		{
+			"name": "Insert Many recipes",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n    \"title\": \"Ensalada César\",\r\n    \"description\": \"Una clásica ensalada con pollo, lechuga romana y aderezo César.\",\r\n    \"ingredients\": [\r\n        \"lechuga romana\",\r\n        \"pollo\",\r\n        \"pan tostado\",\r\n        \"queso parmesano\",\r\n        \"aderezo César\"\r\n    ],\r\n    \"category\": \"ensaladas\",\r\n    \"imageUrl\": \"https://example.com/ensalada-cesar.jpg \",\r\n    \"difficulty\": \"facil\"\r\n},\r\n{\r\n    \"title\": \"Tarta de Manzana\",\r\n    \"description\": \"Un postre clásico con manzanas caramelizadas y masa hojaldrada.\",\r\n    \"ingredients\": [\r\n        \"manzanas\",\r\n        \"azúcar\",\r\n        \"mantequilla\",\r\n        \"hojaldre\",\r\n        \"canela\"\r\n    ],\r\n    \"category\": \"postre\",\r\n    \"imageUrl\": \"https://example.com/tarta-manzana.jpg \",\r\n    \"difficulty\": \"medio\"\r\n},\r\n{\r\n    \"title\": \"Paella Valenciana\",\r\n    \"description\": \"Un plato tradicional español con arroz, mariscos y verduras.\",\r\n    \"ingredients\": [\r\n        \"arroz\",\r\n        \"calamares\",\r\n        \"gambas\",\r\n        \"pimientos\",\r\n        \"tomate\",\r\n        \"azafrán\"\r\n    ],\r\n    \"category\": \"principal\",\r\n    \"imageUrl\": \"https://example.com/paella-valenciana.jpg \",\r\n    \"difficulty\": \"medio\"\r\n},\r\n{\r\n    \"title\": \"Batido de Fresa\",\r\n    \"description\": \"Un batido refrescante hecho con fresas frescas y yogur.\",\r\n    \"ingredients\": [\r\n        \"fresas\",\r\n        \"yogur natural\",\r\n        \"leche\",\r\n        \"miel\"\r\n    ],\r\n    \"category\": \"bebidas\",\r\n    \"imageUrl\": \"https://example.com/batido-fresa.jpg \",\r\n    \"difficulty\": \"facil\"\r\n},\r\n{\r\n    \"title\": \"Sopa de Tomate\",\r\n    \"description\": \"Una sopa cremosa hecha con tomates frescos y hierbas aromáticas.\",\r\n    \"ingredients\": [\r\n        \"tomates\",\r\n        \"cebolla\",\r\n        \"ajo\",\r\n        \"aceite de oliva\",\r\n        \"albahaca\"\r\n    ],\r\n    \"category\": \"entrante\",\r\n    \"imageUrl\": \"https://example.com/sopa-tomate.jpg \",\r\n    \"difficulty\": \"facil\"\r\n},\r\n{\r\n    \"title\": \"Pollo al Curry\",\r\n    \"description\": \"Un plato exótico con pollo cocinado en una salsa de curry cremosa.\",\r\n    \"ingredients\": [\r\n        \"pollo\",\r\n        \"leche de coco\",\r\n        \"curry en polvo\",\r\n        \"cebolla\",\r\n        \"ajo\"\r\n    ],\r\n    \"category\": \"segundos\",\r\n    \"imageUrl\": \"https://example.com/pollo-curry.jpg \",\r\n    \"difficulty\": \"medio\"\r\n},\r\n{\r\n    \"title\": \"Helado de Vainilla\",\r\n    \"description\": \"Un clásico helado casero con un toque de vainilla.\",\r\n    \"ingredients\": [\r\n        \"leche\",\r\n        \"crema\",\r\n        \"azúcar\",\r\n        \"vainilla\"\r\n    ],\r\n    \"category\": \"postre\",\r\n    \"imageUrl\": \"https://example.com/helado-vainilla.jpg \",\r\n    \"difficulty\": \"facil\"\r\n},\r\n{\r\n    \"title\": \"Ceviche de Pescado\",\r\n    \"description\": \"Un plato peruano con pescado marinado en limón y especias.\",\r\n    \"ingredients\": [\r\n        \"pescado blanco\",\r\n        \"limón\",\r\n        \"cebolla\",\r\n        \"cilantro\",\r\n        \"ají\"\r\n    ],\r\n    \"category\": \"entrante\",\r\n    \"imageUrl\": \"https://example.com/ceviche-pescado.jpg \",\r\n    \"difficulty\": \"medio\"\r\n},\r\n{\r\n    \"title\": \"Espaguetis a la Carbonara\",\r\n    \"description\": \"Pasta italiana con una salsa cremosa de huevo, queso y panceta.\",\r\n    \"ingredients\": [\r\n        \"espaguetis\",\r\n        \"huevos\",\r\n        \"queso parmesano\",\r\n        \"panceta\",\r\n        \"pimienta\"\r\n    ],\r\n    \"category\": \"principal\",\r\n    \"imageUrl\": \"https://example.com/carbonara.jpg \",\r\n    \"difficulty\": \"facil\"\r\n},\r\n{\r\n    \"title\": \"Mojito Clásico\",\r\n    \"description\": \"Un cóctel refrescante hecho con ron, menta y lima.\",\r\n    \"ingredients\": [\r\n        \"ron blanco\",\r\n        \"lima\",\r\n        \"menta\",\r\n        \"azúcar\",\r\n        \"agua mineral\"\r\n    ],\r\n    \"category\": \"bebidas\",\r\n    \"imageUrl\": \"https://example.com/mojito.jpg \",\r\n    \"difficulty\": \"facil\"\r\n},\r\n{\r\n    \"title\": \"Hamburguesa Casera\",\r\n    \"description\": \"Una hamburguesa hecha en casa con carne fresca y toppings al gusto.\",\r\n    \"ingredients\": [\r\n        \"carne molida\",\r\n        \"pan de hamburguesa\",\r\n        \"queso\",\r\n        \"lechuga\",\r\n        \"tomate\"\r\n    ],\r\n    \"category\": \"principal\",\r\n    \"imageUrl\": \"https://example.com/hamburguesa.jpg \",\r\n    \"difficulty\": \"facil\"\r\n},\r\n{\r\n    \"title\": \"Tacos de Pollo\",\r\n    \"description\": \"Tacos mexicanos rellenos de pollo desmenuzado y especias.\",\r\n    \"ingredients\": [\r\n        \"pollo\",\r\n        \"tortillas de maíz\",\r\n        \"cebolla\",\r\n        \"cilantro\",\r\n        \"limón\"\r\n    ],\r\n    \"category\": \"segundos\",\r\n    \"imageUrl\": \"https://example.com/tacos-pollo.jpg \",\r\n    \"difficulty\": \"facil\"\r\n},\r\n{\r\n    \"title\": \"Gazpacho Andaluz\",\r\n    \"description\": \"Una sopa fría típica de España hecha con tomate y pepino.\",\r\n    \"ingredients\": [\r\n        \"tomate\",\r\n        \"pepino\",\r\n        \"pimiento\",\r\n        \"ajo\",\r\n        \"aceite de oliva\"\r\n    ],\r\n    \"category\": \"entrante\",\r\n    \"imageUrl\": \"https://example.com/gazpacho.jpg \",\r\n    \"difficulty\": \"facil\"\r\n},\r\n{\r\n    \"title\": \"Flan de Caramelo\",\r\n    \"description\": \"Un postre cremoso con una capa de caramelo dorado.\",\r\n    \"ingredients\": [\r\n        \"leche\",\r\n        \"huevos\",\r\n        \"azúcar\",\r\n        \"vainilla\"\r\n    ],\r\n    \"category\": \"postre\",\r\n    \"imageUrl\": \"https://example.com/flan-caramelo.jpg \",\r\n    \"difficulty\": \"medio\"\r\n},\r\n{\r\n    \"title\": \"Bistec a la Parrilla\",\r\n    \"description\": \"Un bistec jugoso cocinado a la parrilla con especias.\",\r\n    \"ingredients\": [\r\n        \"bistec\",\r\n        \"sal\",\r\n        \"pimienta\",\r\n        \"aceite de oliva\",\r\n        \"ajo\"\r\n    ],\r\n    \"category\": \"segundos\",\r\n    \"imageUrl\": \"https://example.com/bistec-parrilla.jpg \",\r\n    \"difficulty\": \"facil\"\r\n},\r\n{\r\n    \"title\": \"Caprese Salad\",\r\n    \"description\": \"Una ensalada simple pero deliciosa con tomate, mozzarella y albahaca.\",\r\n    \"ingredients\": [\r\n        \"tomate\",\r\n        \"mozzarella\",\r\n        \"albahaca\",\r\n        \"aceite de oliva\",\r\n        \"vinagre balsámico\"\r\n    ],\r\n    \"category\": \"ensaladas\",\r\n    \"imageUrl\": \"https://example.com/caprese-salad.jpg \",\r\n    \"difficulty\": \"facil\"\r\n},\r\n{\r\n    \"title\": \"Chiles Rellenos\",\r\n    \"description\": \"Chiles rellenos de queso gratinados en salsa de tomate.\",\r\n    \"ingredients\": [\r\n        \"chiles poblanos\",\r\n        \"queso\",\r\n        \"huevo\",\r\n        \"salsa de tomate\"\r\n    ],\r\n    \"category\": \"segundos\",\r\n    \"imageUrl\": \"https://example.com/chiles-rellenos.jpg \",\r\n    \"difficulty\": \"medio\"\r\n},\r\n{\r\n    \"title\": \"Limonada Fresca\",\r\n    \"description\": \"Una bebida refrescante hecha con limones frescos y azúcar.\",\r\n    \"ingredients\": [\r\n        \"limones\",\r\n        \"azúcar\",\r\n        \"agua\",\r\n        \"hielo\"\r\n    ],\r\n    \"category\": \"bebidas\",\r\n    \"imageUrl\": \"https://example.com/limonada.jpg \",\r\n    \"difficulty\": \"facil\"\r\n},\r\n{\r\n    \"title\": \"Arroz con Leche\",\r\n    \"description\": \"Un postre clásico hecho con arroz, leche y canela.\",\r\n    \"ingredients\": [\r\n        \"arroz\",\r\n        \"leche\",\r\n        \"azúcar\",\r\n        \"canela\"\r\n    ],\r\n    \"category\": \"postre\",\r\n    \"imageUrl\": \"https://example.com/arroz-leche.jpg \",\r\n    \"difficulty\": \"facil\"\r\n}\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/recipe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"recipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Recipes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/recipe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"recipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Recipe By Id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/recipe/6830af5150e6377c629bcd84",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"recipe",
+						"6830af5150e6377c629bcd84"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Recents Recipes",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/recipe/recent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"recipe",
+						"recent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Popular Recipes",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/recipe/popular",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"recipe",
+						"popular"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signup",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Alejandro García Serrano\",\r\n    \"email\": \"aleboy80@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"aleboy80@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Favourite Recipes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODM0OTI5M2NkNWZiMTQyZmJkMGJlNWIiLCJuYW1lIjoiQWxlamFuZHJvIEdhcmPDrWEgU2VycmFubyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQ4Mjc5OTkzLCJleHAiOjE3NDgyODA4OTN9.E4yYEn8gS5pf4h8apelG4-wXxFzVwtYq7h4JdQoNocg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nessma_21@hotmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/favorites",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"favorites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Recipe To Favorite",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODM0OTI5M2NkNWZiMTQyZmJkMGJlNWIiLCJuYW1lIjoiQWxlamFuZHJvIEdhcmPDrWEgU2VycmFubyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQ4Mjc5OTkzLCJleHAiOjE3NDgyODA4OTN9.E4yYEn8gS5pf4h8apelG4-wXxFzVwtYq7h4JdQoNocg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nessma_21@hotmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/6830af5150e6377c629bcd88/favorite",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"6830af5150e6377c629bcd88",
+						"favorite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Recipe To Favorite Copy",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODM0OTI5M2NkNWZiMTQyZmJkMGJlNWIiLCJuYW1lIjoiQWxlamFuZHJvIEdhcmPDrWEgU2VycmFubyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQ4Mjc5OTkzLCJleHAiOjE3NDgyODA4OTN9.E4yYEn8gS5pf4h8apelG4-wXxFzVwtYq7h4JdQoNocg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nessma_21@hotmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/6830af5150e6377c629bcd88/favorite",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"6830af5150e6377c629bcd88",
+						"favorite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Recipe",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODM0OTI5M2NkNWZiMTQyZmJkMGJlNWIiLCJuYW1lIjoiQWxlamFuZHJvIEdhcmPDrWEgU2VycmFubyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0ODI4MDcxOCwiZXhwIjoxNzQ4MjgxNjE4fQ.eUtpddWO0bmodm4OKW2zD4ccoaX6HuTAfBB8RAez8Y4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Sopa de Caracoles\",\r\n  \"description\": \"Una sopa cremosa hecha con caracoles frescos y hierbas aromáticas.\",\r\n  \"ingredients\": [\r\n    \"caracoles\",\r\n    \"cebolla\",\r\n    \"ajo\",\r\n    \"aceite de oliva\",\r\n    \"albahaca\"\r\n  ],\r\n  \"category\": \"entrante\",\r\n  \"imageUrl\": \"https://example.com/sopa-caracoles.jpg \",\r\n  \"difficulty\": \"facil\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/recipe/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"recipe",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Recipe",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODM0OTI5M2NkNWZiMTQyZmJkMGJlNWIiLCJuYW1lIjoiQWxlamFuZHJvIEdhcmPDrWEgU2VycmFubyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0ODI4MDcxOCwiZXhwIjoxNzQ4MjgxNjE4fQ.eUtpddWO0bmodm4OKW2zD4ccoaX6HuTAfBB8RAez8Y4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"description\": \"Una sopa cremosa hecha con caracoles frescos, hierbas aromáticas y mucho amor\",\r\n  \"difficulty\": \"medio\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/recipe/6834a53b620b3d75ae9e07e4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"recipe",
+						"6834a53b620b3d75ae9e07e4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Recipe",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODM0OTI5M2NkNWZiMTQyZmJkMGJlNWIiLCJuYW1lIjoiQWxlamFuZHJvIEdhcmPDrWEgU2VycmFubyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0ODI4MTkwMywiZXhwIjoxNzQ4MjgyODAzfQ.MblJ7g3G-uqB2q_PPs0M_bvhQj9XooKeJTM1xC1KMjg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/recipe/6834a59a1d3f651bf8ff1105",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"recipe",
+						"6834a59a1d3f651bf8ff1105"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Set Comment To Recipe",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODM0OTI5M2NkNWZiMTQyZmJkMGJlNWIiLCJuYW1lIjoiQWxlamFuZHJvIEdhcmPDrWEgU2VycmFubyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0ODI4MzMxOCwiZXhwIjoxNzQ4Mjg0MjE4fQ.yb4IFXXmSa8AskUYa0QmZs1Wpu6lo9xSULHNBvLXl0c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"comment\": \"La receta es super facil ha quedado muy sabrosa!\",\r\n    \"rating\": 9.5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/recipe/6830af5150e6377c629bcd93/comment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"recipe",
+						"6830af5150e6377c629bcd93",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Logged User",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODM0OTI5M2NkNWZiMTQyZmJkMGJlNWIiLCJuYW1lIjoiQWxlamFuZHJvIEdhcmPDrWEgU2VycmFubyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0ODM2MDkyNiwiZXhwIjoxNzQ4MzY2MzI2fQ.zJYJD6yHPs5D6JmsLaVrjiEIjX93UEN3bGZTeC7W60A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Alejandro García\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Tokens",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODM0OTI5M2NkNWZiMTQyZmJkMGJlNWIiLCJuYW1lIjoiQWxlamFuZHJvIEdhcmPDrWEgU2VycmFubyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0ODM2MDkyNiwiZXhwIjoxNzQ4MzY2MzI2fQ.zJYJD6yHPs5D6JmsLaVrjiEIjX93UEN3bGZTeC7W60A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/generateToken",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"generateToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Set Like To Recipe",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODM1ZTZhMWM3YTc1NmQyNzIyODQ0YmYiLCJuYW1lIjoiQWxlamFuZHJvIEdhcmPDrWEgU2VycmFubyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0ODM2Mzg5MSwiZXhwIjoxNzQ4MzY5MjkxfQ.9W1ttrOtRZF7q-gWEhvMmhYU27YN8a_ecXjwh3Xf9Wk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/recipe/6830af5150e6377c629bcd85/like",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"recipe",
+						"6830af5150e6377c629bcd85",
+						"like"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Like To Recipe Copy",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODM1ZTZhMWM3YTc1NmQyNzIyODQ0YmYiLCJuYW1lIjoiQWxlamFuZHJvIEdhcmPDrWEgU2VycmFubyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0ODM2Mzg5MSwiZXhwIjoxNzQ4MzY5MjkxfQ.9W1ttrOtRZF7q-gWEhvMmhYU27YN8a_ecXjwh3Xf9Wk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Alejandro García\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/recipe/6830af5150e6377c629bcd82/like",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"recipe",
+						"6830af5150e6377c629bcd82",
+						"like"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Recipes Agrouped By Category",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODM1ZTZhMWM3YTc1NmQyNzIyODQ0YmYiLCJuYW1lIjoiQWxlamFuZHJvIEdhcmPDrWEgU2VycmFubyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0ODM2Mzg5MSwiZXhwIjoxNzQ4MzY5MjkxfQ.9W1ttrOtRZF7q-gWEhvMmhYU27YN8a_ecXjwh3Xf9Wk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Alejandro García\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/recipe/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"recipe",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Recipes Filtered By Category Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODM1ZTZhMWM3YTc1NmQyNzIyODQ0YmYiLCJuYW1lIjoiQWxlamFuZHJvIEdhcmPDrWEgU2VycmFubyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0ODM2Mzg5MSwiZXhwIjoxNzQ4MzY5MjkxfQ.9W1ttrOtRZF7q-gWEhvMmhYU27YN8a_ecXjwh3Xf9Wk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Alejandro García\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/recipe/categoryfilter?filter=principal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"recipe",
+						"categoryfilter"
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "principal"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
