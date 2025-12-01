@@ -13,12 +13,14 @@ server.use(express.json());
 
 connectToDatabase();
 
+
+const corsOptions = {
+  origin: "http://localhost:5173",
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "auth-token"],
+};
 server.use(
-  cors({
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "auth-token"],
-  })
+  cors(corsOptions)
 );
 
 // Router for users
