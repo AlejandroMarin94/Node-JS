@@ -1,21 +1,20 @@
 import React from "react";
+import TarjetaRecomendacionesComponent from "./TarjetaRecomendacionesComponent";
 
 const RecomendacionesLibroComponent = (props) => {
-  const { ejemplo1, recomendaciones } = props;
+  const {recomendaciones } = props;
   console.log(recomendaciones);
   
   return (
     <div>
-      <h3>Recomendaciones</h3>
-      {recomendaciones.map((r, idx) => (
-        <div key={idx}>
-          <p>Title: {r.title}</p>
-          <p>ISBN: {r.ISBN}</p>
-          <p>Autor: {r.author}</p>
-          <p>Description: {r.description}</p>
-        </div>
-      ))}
-    </div>
+    <h3>Recomendaciones</h3>
+    {
+      recomendaciones.map((r)=>(
+   <TarjetaRecomendacionesComponent key={r.id} recomendaciones={r} />
+      ))
+    }
+
+   </div>
   );
 };
 

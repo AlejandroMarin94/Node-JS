@@ -1,20 +1,18 @@
 import React from "react";
+import TiendaLibroComponent from "./TiendaLibroComponent";
 
 const DondeComprarLibroComponent = (props) => {
-  
-  const {ejemplo1, listaTiendas}=props
+  const { listaTiendas } = props;
 
   return (
     <div>
       <h2>¿Donde puedes comprar este libro</h2>
-      {listaTiendas.map((tienda, idx) => (
-        <div key={idx}>
-          <h4>Nombre: {tienda.name}</h4>
-          <p>Direccion: {tienda.address}</p>
-        </div>
+      {listaTiendas.map((tienda) => (
+        <TiendaLibroComponent key={tienda.id} tienda={tienda} />
       ))}
     </div>
   );
 };
 
 export default DondeComprarLibroComponent;
+

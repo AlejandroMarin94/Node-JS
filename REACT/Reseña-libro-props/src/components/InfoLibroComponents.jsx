@@ -2,7 +2,7 @@ import React from "react";
 
 function InfoLibroComponents(props) {
 
-  const {ejemplo1, infoLibro}=props
+  const {infoLibro}=props
   
   return (
     <div>
