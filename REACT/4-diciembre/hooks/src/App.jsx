@@ -13,6 +13,9 @@ function App() {
     console.log("Nombre sin useState:", nombnreSinUseState);
     
   }
+  const [edad, setEdad] = useState(18)
+
+
   
   return (
     <>
@@ -28,8 +31,26 @@ function App() {
         <h3>Nombre con useState: {name}</h3>
         <div>
           <span>Nombre:</span>
-          <input type="text"
+          
+          <input type="text" 
+          value={name}
            onChange={(event)=>{setName(event.target.value)}} />
+           <span>
+            {
+              name === "" ? "No has escrito nada aun" : `${name}`
+            }
+           </span>
+        </div>
+        <div>
+          <h4>Edad {edad}</h4>
+
+        </div>
+        <div>
+          <button onClick={()=>{setEdad(21)}}>Cambia tu edad a 21</button> 
+        </div>
+        <div>
+          <button onClick={()=>{setEdad(edad+1)}}>Suma uno a tu edad</button> 
+
         </div>
       </div>
     </>
