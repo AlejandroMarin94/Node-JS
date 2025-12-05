@@ -12,9 +12,9 @@ const CalculadoraComponent = () => {
       setMensaje(" Has llegado al limite");
       return;
     }
-    if(multiplicador *valorParaMultiplicar > limit){
-      setMensaje ("La siguiente operacion supera el limite")
-      setMultiplicador(multiplicador)
+    if (multiplicador * valorParaMultiplicar > limit) {
+      setMensaje("La siguiente operacion supera el limite");
+      setMultiplicador(multiplicador);
       return;
     }
     if (multiplicador !== 0) {
