@@ -4,7 +4,7 @@ import { useState } from "react";
 const SumaRestaComponent = () => {
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
-  const [resultado, setResultado] = useState(0);
+  const [resultado, setResultado] = useState(undefined);
   /*
   const restando = (numero) => setRestar(restar - numero);
   const sumando = (numero2) => setSumar(sumar - numero2);
@@ -29,14 +29,51 @@ const SumaRestaComponent = () => {
       </div>
       <hr />
       <div>
-        <button onClick={() => {setResultado(num1+num2)}}>Sumar</button>
-        <button onClick={() => {setResultado(num1-num2)}}>Restar</button>
+        <button
+          onClick={() => {
+            setResultado(num1 + num2);
+          }}
+        >
+          Sumar
+        </button>
+        <button
+          onClick={() => {
+            setResultado(num1 - num2);
+          }}
+        >
+          Restar
+        </button>
+        <button
+          onClick={() => {
+            setResultado(
+              num2 === 0 ? "No se puede dividir entre 0" : num1 / num2
+            );
+          }}
+        >
+          Dividir
+        </button>
+        <button
+          onClick={() => {
+            setResultado(num1 ** num2);
+          }}
+        >
+          Potencia
+        </button>
+
+        <button onClick={() => setResultado(num1 * num2)}>Multiplicar</button>
       </div>
 
       <div>
-        <span>Resultado: {resultado}</span>
-       
-       
+        
+        <span>
+          Resultado: {resultado ? ` ${resultado}` : "Aún no hay resultado"}
+        </span>
+        <hr />
+        {resultado == !undefined ? (
+          <span>Resultado: {resultado}</span>
+        ) : (
+          <span> Aún no hay resultado </span>
+        )}
       </div>
     </div>
   );
