@@ -49,6 +49,7 @@ const ListaPilotosPage = () => {
 
   const editPiloto = (idPiloto, editedPiloto) => {
     editPilotoFetch(idPiloto, editedPiloto);
+    unselectPiloto();
     loadPilotos();
   };
 
@@ -92,6 +93,7 @@ const ListaPilotosPage = () => {
                   piloto={pilotoSelected}
                   showInfo
                   backToList={unselectPiloto}
+                  editPiloto={editPiloto}
                 />
               ) : (
                 <>
@@ -103,7 +105,6 @@ const ListaPilotosPage = () => {
                         piloto={p}
                         deletePiloto={deletePiloto}
                         loadInfoPiloto={loadInfoPiloto}
-                        editPiloto={editPiloto}
                       />
                       <hr />
                     </>

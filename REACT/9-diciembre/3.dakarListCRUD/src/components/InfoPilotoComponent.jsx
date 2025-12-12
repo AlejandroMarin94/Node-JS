@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const InfoPilotoComponent = (props) => {
   const {
@@ -13,10 +13,6 @@ const InfoPilotoComponent = (props) => {
 
   const [editedPiloto, setEditedPiloto] = useState({});
 
-  //const [initialPilotoData, setInitialPilotoData] = useState(piloto);
-
-  let initialPilotoData = { ...piloto };
-
   const editedPilotoHandler = (propName, propValue) => {
     const aux = {
       ...editedPiloto,
@@ -27,7 +23,13 @@ const InfoPilotoComponent = (props) => {
 
   const cancelarEdicion = () => {
     setEditMode(false);
+    // Volvemos a los datos originales
+    setEditedPiloto(piloto);
   };
+
+  useEffect(() => {
+    setEditedPiloto(piloto);
+  }, [piloto]);
 
   return (
     <div>
@@ -46,7 +48,7 @@ const InfoPilotoComponent = (props) => {
         ) : (
           <input
             name="nombre"
-            value={initialPilotoData.nombre}
+            value={editedPiloto.nombre}
             type="text"
             onChange={(event) => {
               editedPilotoHandler('nombre', event.target.value);
@@ -60,7 +62,7 @@ const InfoPilotoComponent = (props) => {
           <span>{piloto.paisDeOrigen}</span>
         ) : (
           <input
-            value={initialPilotoData.paisDeOrigen}
+            value={editedPiloto.paisDeOrigen}
             type="text"
             onChange={(event) => {
               editedPilotoHandler('paisDeOrigen', event.target.value);
@@ -75,7 +77,7 @@ const InfoPilotoComponent = (props) => {
         ) : (
           <input
             type="text"
-            value={initialPilotoData.fechaDeNacimiento}
+            value={editedPiloto.fechaDeNacimiento}
             onChange={(event) => {
               editedPilotoHandler('fechaDeNacimiento', event.target.value);
             }}
@@ -89,7 +91,7 @@ const InfoPilotoComponent = (props) => {
         ) : (
           <input
             type="text"
-            value={initialPilotoData.vehiculo}
+            value={editedPiloto.vehiculo}
             onChange={(event) => {
               editedPilotoHandler('vehiculo', event.target.value);
             }}
