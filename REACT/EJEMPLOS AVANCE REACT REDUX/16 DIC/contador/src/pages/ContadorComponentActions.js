@@ -1,4 +1,7 @@
 export const INCREMENT = 'INCREMENT';
+export const DECREMENT = "DECREMENT";
+export const RESET = "RESET";
+
 
 export const incrementCount = (newValue) => {
   return {
@@ -6,5 +9,21 @@ export const incrementCount = (newValue) => {
     payload: {
       newValue,
     },
+  };
+};
+
+export const decrementCount = (newValue) => {
+  return {
+    type: DECREMENT,
+    payload: {
+      newValue,
+    },
+  };
+};
+
+export const reset = () => {
+  return {
+    type: RESET,
+    
   };
 };

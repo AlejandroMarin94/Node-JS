@@ -1,4 +1,4 @@
-import { INCREMENT } from './ContadorComponentActions';
+import { DECREMENT, INCREMENT, RESET } from './ContadorComponentActions';
 
 const initialState = {
   count: 0,
@@ -11,7 +11,19 @@ const contadorComponentReducer = (state = initialState, action) => {
         ...state,
         count: action.payload.newValue,
       };
+
+      case DECREMENT:
+      return {
+        ...state,
+        count: action.payload.newValue,
+      };
+
+      case RESET:
+      return initialState
+       
+      
     default:
+      
       return state;
   }
 };
