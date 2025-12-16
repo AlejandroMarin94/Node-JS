@@ -19,47 +19,56 @@ const CreateStudentPage = () => {
 
   const checkFields = () => {
     let isError = false;
+    setErrorMessageState({});
+    let errorMessages = {};
     if (!newStudent.name || newStudent.name === "") {
-      setErrorMessageState({
-        ...errorMessageState,
+      errorMessages={
+        ...errorMessages,
         name: ERROR_MESSAGE,
-      });
+      };
       isError = true;
     }
     if (!newStudent.lastName || newStudent.lastName === "") {
-      setErrorMessageState({
-        ...errorMessageState,
+      errorMessages={
+        ...errorMessages,
+    
         lastName: ERROR_MESSAGE,
-      });
+      };
       isError = true;
     }
     if (!newStudent.email || newStudent.email === "") {
-      setErrorMessageState({
-        ...errorMessageState,
+      errorMessages={
+        ...errorMessages,
+        
         email: ERROR_MESSAGE,
-      });
+      };
       isError = true;
     }
     if (!newStudent.boughtCourse || newStudent.boughtCourse === "") {
-      setErrorMessageState({
-        ...errorMessageState,
+      errorMessages={
+        ...errorMessages,
+        
         boughtCourse: ERROR_MESSAGE,
-      });
+      };
       isError = true;
     }
     if (!newStudent.userName || newStudent.userName === "") {
-      setErrorMessageState({
-        ...errorMessageState,
+      errorMessages={
+        ...errorMessages,
+        
         userName: ERROR_MESSAGE,
-      });
+      };
       isError = true;
     }
 
     if (isError) {
-      return false;
-    } else {
-      return true;
+      setErrorMessageState(errorMessages)
+      return false
+
+    } else{
+      return true
     }
+      
   };
   const saveStudent = () => {
     const check = checkFields();
@@ -99,7 +108,10 @@ const CreateStudentPage = () => {
             onChange={(e) => {
               studenHandler("lastName", e.target.value);
             }}
+            
           />
+          {errorMessageState.lastName && (<span className= "redText">{errorMessageState.lastName}</span>)}
+
         </div>
         <div>
           <span>
@@ -112,6 +124,8 @@ const CreateStudentPage = () => {
               studenHandler("email", e.target.value);
             }}
           />
+          {errorMessageState.email && (<span className= "redText">{errorMessageState.email}</span>)}
+
         </div>
         <div>
           <span>
@@ -124,6 +138,8 @@ const CreateStudentPage = () => {
               studenHandler("boughtCourse", e.target.value);
             }}
           />
+          {errorMessageState.boughtCourse && (<span className= "redText">{errorMessageState.boughtCourse}</span>)}
+
         </div>
         <div>
           <span>
@@ -136,6 +152,8 @@ const CreateStudentPage = () => {
               studenHandler("userName", e.target.value);
             }}
           />
+          {errorMessageState.userName && (<span className= "redText">{errorMessageState.userName}</span>)}
+
         </div>
       </div>
       <div>

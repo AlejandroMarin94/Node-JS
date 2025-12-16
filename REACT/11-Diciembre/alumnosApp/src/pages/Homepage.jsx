@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getAllStudents } from "../services/apifetch";
 import { useNavigate } from "react-router-dom";
+import StudentComponents from "../components/StudentComponents";
 
 const Homepage = () => {
   const [students, setStudents] = useState([]);
@@ -31,10 +32,8 @@ const Homepage = () => {
         <p>No hay alumnos registrados</p>
       ) : (
         students.map((st, idx) => (
-          <div key={idx}>
-            <p>Nombre: {st.name}</p>
-            <hr />
-          </div>
+          <StudentComponents key={idx} student={st}/>
+          
         ))
       )}
     </div>

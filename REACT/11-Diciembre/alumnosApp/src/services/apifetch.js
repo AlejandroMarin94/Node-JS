@@ -23,3 +23,27 @@ export const createStudent = (newStudent) => {
   };
   studentList.push(aux);
 };
+
+export const getStudentById= (idStudent) =>{
+  return studentList.find((st)=> st._id ===Number(idStudent))
+}
+
+
+export const payCourse = (idStudent) =>{
+  const studentAux = studentList.find((st)=> st._id === Number(idStudent));
+  studentAux.paid= true
+  const listAuxStudents = studentList.filter(st=> st._id!== Number(idStudent))
+
+  listAuxStudents.push(studentAux);
+  studentList= listAuxStudents
+
+
+}
+
+export const deleteStudent =(idStudent)=>{
+  const listAuxStudents =studentList.filter(
+    (st)=> st._id !== Number(idStudent));
+    studentList = listAuxStudents;
+
+  
+}
