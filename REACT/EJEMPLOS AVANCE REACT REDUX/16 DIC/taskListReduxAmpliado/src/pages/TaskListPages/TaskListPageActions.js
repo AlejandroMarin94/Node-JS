@@ -2,6 +2,10 @@ export const AGREGAR_TAREA = 'AGREGAR_TAREA';
 export const ELIMINAR_TAREA = 'ELIMINAR_TAREA';
 export const TOGGLE_TAREA = 'TOGGLE_TAREA';
 
+// NUEVAS ACTIONS
+export const LIMPIAR_TAREAS = 'LIMPIAR_TAREAS';
+export const ELIMINAR_TAREAS_MARCADAS = 'ELIMINAR_TAREAS_MARCADAS';
+
 export const addTask = (newTask) => {
   return {
     type: AGREGAR_TAREA,
@@ -28,3 +32,15 @@ export const toggleTask = (idTask) => {
     },
   };
 };
+
+// Deja la lista de tareas vacía
+export const clearTasks = () => ({
+  type: LIMPIAR_TAREAS,
+  payload: {},
+});
+
+// Elimina sólo las tareas marcadas como completadas
+export const removeMarkedTasks = () => ({
+  type: ELIMINAR_TAREAS_MARCADAS,
+  payload: {},
+});

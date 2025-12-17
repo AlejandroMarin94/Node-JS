@@ -1,7 +1,8 @@
 export const INCREMENT = 'INCREMENT';
-export const DECREMENT = "DECREMENT";
-export const RESET = "RESET";
-
+export const DECREMENT = 'DECREMENT';
+export const RESET = 'RESET';
+export const MODIFY_COUNT_NAME = 'MODIFY_COUNT_NAME';
+export const MODIFY_CREATOR_NAME = 'MODIFY_CREATOR_NAME';
 
 export const incrementCount = (newValue) => {
   return {
@@ -21,9 +22,29 @@ export const decrementCount = (newValue) => {
   };
 };
 
-export const reset = () => {
+export const resetCount = (newValue) => {
   return {
     type: RESET,
-    
+    payload: {
+      newValue,
+    },
+  };
+};
+
+export const modifyCountName = (newName) => {
+  return {
+    type: MODIFY_COUNT_NAME,
+    payload: {
+      newName,
+    },
+  };
+};
+
+export const modifyCreatorName = (newName) => {
+  return {
+    type: MODIFY_CREATOR_NAME,
+    payload: {
+      newName,
+    },
   };
 };

@@ -1,10 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteAll, deleteChecked, delTask, toggleTask } from './TaskListPageActions';
+import { delTask, toggleTask } from './TaskListPageActions';
 
 const TaskListPage = () => {
   const tasks = useSelector((state) => state.taskListPageReducer.tasks);
-  
   const dispatch = useDispatch();
 
   return (
@@ -12,8 +11,6 @@ const TaskListPage = () => {
       {!tasks || tasks.length === 0 ? (
         <h3>Aún no se han introducido tareas</h3>
       ) : (
-        <>
-        {
         tasks.map((t, idx) => (
           <div key={idx}>
             <span style={{ fontWeight: 'bold' }}>{t?.taskTitle}</span> |
@@ -27,19 +24,9 @@ const TaskListPage = () => {
               Eliminar tarea
             </button>
           </div>
-
-          
-
-          
-        ))}
-        <button onClick={()=>dispatch(deleteAll())}>Borrar todas las tareas</button>
-        <button onClick={()=> dispatch(deleteChecked())}>Borrar tareas completadas</button>
-
-        </>
-        
+        ))
       )}
     </>
-    
   );
 };
 

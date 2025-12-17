@@ -1,6 +1,8 @@
 import {
   AGREGAR_TAREA,
   ELIMINAR_TAREA,
+  ELIMINAR_TAREAS_MARCADAS,
+  LIMPIAR_TAREAS,
   TOGGLE_TAREA,
 } from './TaskListPageActions';
 
@@ -26,6 +28,19 @@ const taskListPageReducer = (state = initialState, action) => {
         tasks: state.tasks.map((t) =>
           t.id === action.payload.idTask ? { ...t, checked: !t.checked } : t
         ),
+      };
+    // NUEVO: dejar la lista vacía
+    case LIMPIAR_TAREAS:
+      return {
+        ...state,
+        tasks: [],
+      };
+
+    // NUEVO: eliminar sólo las tareas marcadas
+    case ELIMINAR_TAREAS_MARCADAS:
+      return {
+        ...state,
+        tasks: state.tasks.filter((t) => !t.checked),
       };
     default:
       return state;
