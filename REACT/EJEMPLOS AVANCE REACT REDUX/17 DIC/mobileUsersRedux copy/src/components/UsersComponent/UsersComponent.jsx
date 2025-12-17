@@ -44,13 +44,16 @@ const UsersComponent = () => {
   const setFavoriteUser = (idUser) => {
     dispatch(selectFavUserAction(idUser));
   };
-
+/*
   let favoriteUsers = [];
   if (showFavorites) {
     favoriteUsers = users.filter((u) => u.favorite === true);
   } else {
     favoriteUsers = users;
   }
+    */
+
+  let favoriteUsers = showFavorites ? users.filter(u=>u.favorite===true):users
 
   useEffect(() => {
     loadUsers();
